@@ -13,23 +13,17 @@ import org.xmldb.api.modules.XMLResource;
 
 import es.teis.exist.util.ConnectionManager;
 import es.teis.exist.util.MyDataSource;
-
+//http://exist-db.org/exist/apps/doc/devguide_xmldb
 public class RetrieveExample {
     
-   // private static String URI = ConnectionManager.getUrl();
+ 
 
     /**
      * args[0] Should be the name of the collection to access
      * args[1] Should be the name of the resource to read from the collection
      */
     public static void main(String args[]) throws Exception {
-//        
-//        final String driver = "org.exist.xmldb.DatabaseImpl";
-//        
-//        // initialize database driver
-//        Class cl = Class.forName(driver);
-//        Database database = (Database) cl.newInstance();
-//        database.setProperty("create-database", "true");
+
     	
     	
     	
@@ -46,7 +40,8 @@ public class RetrieveExample {
         try {    
             // get the collection
             col = DatabaseManager.getCollection(dataSource.getUrl() + args[0]);
-            col.setProperty(OutputKeys.INDENT, "no");
+            
+            col.setProperty(OutputKeys.INDENT, "yes");
             res = (XMLResource)col.getResource(args[1]);
             
             if(res == null) {
